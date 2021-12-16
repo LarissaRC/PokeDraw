@@ -1,0 +1,15 @@
+.btn-active {
+    padding: 5px;
+    margin: 5px 10px;
+    background-color: darkslategrey;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-inactive {
+    padding: 5px;
+    margin: 5px 10px;
+    background-color:rgb(116, 143, 143);
+    color: white;
+    text-decoration: none;
+}
