@@ -1,0 +1,26 @@
+{
+    "pokemons": [
+        {
+            "name": "Swampert",
+            "description": "Swampert is very strong. It has enough power to easily drag a boulder weighing more than a ton. This Pokémon also has powerful vision that lets it see even in murky water.",
+            "link": "https://www.pokemon.com/br/pokedex/swampert",
+            "img_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/260.png",
+            "capturado": false,
+            "types": ["Water", "Ground"]
+        },
+        {
+            "name": "Breloom",
+            "description": "Breloom closes in on its foe with light and sprightly footwork, then throws punches with its stretchy arms. This Pokémon’s fighting technique puts boxers to shame.",
+            "img_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/286.png",
+            "capturado": false,
+            "types": ["Grass", "Fighting"]
+        },
+        {
+            "name": "Oshawott",
+            "link": "https://www.pokemon.com/br/pokedex/oshawott",
+            "img_url": "https://legends.pokemon.com/assets/pokemon/pokemon_oshawott.png",
+            "capturado": false,
+            "types": ["Water"]
+        }
+    ]
+}

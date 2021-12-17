@@ -1,0 +1,19 @@
+.remove {
+    background-color: tomato;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.add {
+    background-color: yellowgreen;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}

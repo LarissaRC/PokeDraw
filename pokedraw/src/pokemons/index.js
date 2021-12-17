@@ -1,5 +1,8 @@
+import React from "react";
 import Pokemon from "./Pokemon";
+import "./style.css";
 
+/*
 const clickOnPoke = (poke, capturado) => {
     if(capturado){
         console.log(`${poke} foi solto!`);
@@ -7,30 +10,65 @@ const clickOnPoke = (poke, capturado) => {
         console.log(`${poke} foi capturado!`);
     }
 }
+*/
 
-const Pokemons = () => {
-    return(
-        <div>
-            <h3>Lista de Pokemons</h3>
-            <hr/>
-            <Pokemon name="Swampert"
-                     description="Swampert is very strong. It has enough power to easily drag a boulder weighing more than a ton. This Pokémon also has powerful vision that lets it see even in murky water."
-                     link="https://www.pokemon.com/br/pokedex/swampert"
-                     clickOnPoke={clickOnPoke}
-                     img_url="https://assets.pokemon.com/assets/cms2/img/pokedex/full/260.png"
-                     capturado={false}/>
-            <Pokemon name="Breloom"
-                     description="Breloom closes in on its foe with light and sprightly footwork, then throws punches with its stretchy arms. This Pokémon’s fighting technique puts boxers to shame."
-                     clickOnPoke={clickOnPoke}
-                     img_url="https://assets.pokemon.com/assets/cms2/img/pokedex/full/286.png"
-                     capturado={false}/>
-            <Pokemon name="Oshawott"
-                     link="https://www.pokemon.com/br/pokedex/oshawott"
-                     clickOnPoke={clickOnPoke}
-                     img_url="https://legends.pokemon.com/assets/pokemon/pokemon_oshawott.png"
-                     capturado={false}/>
-        </div>
-    )
+async function getPokemons() {
+    let response = await fetch('http://localhost:3000/api/pokemons.json')
+    let data = await response.json()
+    return data;
+}
+
+class Pokemons extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            pokemons: []
+        }
+    }
+
+    componentDidMount() {
+        getPokemons().then(data => {
+            this.setState(state => ({
+                pokemons: data["pokemons"]
+            }))
+        })
+    }
+
+    removeLast = () => {
+        let new_pokemons = [...this.state.pokemons] /* Extraindo todos as propriedades de pokemons */
+        new_pokemons.pop();
+        this.setState(state => ({
+            pokemons: new_pokemons
+        }))
+    }
+
+    addNew = () => {
+        let new_pokemon = this.state.pokemons[this.state.pokemons.length -1];
+
+        this.setState(state => ({
+            pokemons: [...this.state.pokemons, new_pokemon]
+        }))
+    }
+
+    render() {
+        return(
+            <div>
+                <h3>Lista de Pokemons</h3>
+                <button class="add" onClick={this.addNew}>Adicionar um Pokemon</button>
+                <button class="remove" onClick={this.removeLast}>Remover o último da lista</button>
+                <hr/>
+                {this.state.pokemons.map((pokemon) =>
+                    <Pokemon name={pokemon.name}
+                    description={pokemon.description}
+                    link={pokemon.link}
+                    img_url={pokemon.img_url}
+                    capturado={pokemon.capturado}
+                    types={pokemon.types}/>
+                )}
+            </div>
+        )
+    }
 }
 
 export default Pokemons;

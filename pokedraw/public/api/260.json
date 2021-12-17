@@ -1,0 +1,6 @@
+{
+    "types": [
+        {"type": "Water"},
+        {"type": "Ground"}
+    ]
+}

@@ -1,3 +1,27 @@
 .poke-div {
     width: 50%;
 }
+
+/* Cor de cada tipo de Pokemon */
+
+li {
+    text-align: center;
+    color: white;
+    padding: 5px;
+    margin-left: -30px;
+    margin-bottom: 5px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+.Water {
+    background-color: #4592c4;
+}
+
+.Ground {
+    background-color: #ab9842;
+}
+
+.Grass {
+    background-color: #9bcc50;
+}
