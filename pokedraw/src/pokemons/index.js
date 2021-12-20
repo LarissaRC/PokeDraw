@@ -13,8 +13,8 @@ const clickOnPoke = (poke, capturado) => {
 */
 
 async function getPokemons() {
-    let response = await fetch('http://localhost:3000/api/pokemons.json')
-    let data = await response.json()
+    let response = await fetch('http://localhost:3000/api/pokemons.json');
+    let data = await response.json();
     return data;
 }
 
@@ -23,7 +23,7 @@ class Pokemons extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            pokemons: []
+            pokemons: [ ]
         }
     }
 
@@ -31,8 +31,8 @@ class Pokemons extends React.Component {
         getPokemons().then(data => {
             this.setState(state => ({
                 pokemons: data["pokemons"]
-            }))
-        })
+            }));
+        });
     }
 
     removeLast = () => {
@@ -55,15 +55,14 @@ class Pokemons extends React.Component {
         return(
             <div>
                 <h3>Lista de Pokemons</h3>
-                <button class="add" onClick={this.addNew}>Adicionar um Pokemon</button>
-                <button class="remove" onClick={this.removeLast}>Remover o último da lista</button>
+                <button className="add" onClick={this.addNew}>Adicionar um Pokemon</button>
+                <button className="remove" onClick={this.removeLast}>Remover o último da lista</button>
                 <hr/>
                 {this.state.pokemons.map((pokemon) =>
                     <Pokemon name={pokemon.name}
                     description={pokemon.description}
                     link={pokemon.link}
                     img_url={pokemon.img_url}
-                    capturado={pokemon.capturado}
                     types={pokemon.types}/>
                 )}
             </div>

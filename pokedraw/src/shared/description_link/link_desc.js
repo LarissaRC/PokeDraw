@@ -10,7 +10,7 @@ const PokeDescLink = (props) => {
     return(
         <Fragment>
             <p>{desc}</p>
-            <a class={props.link ? "btn-active" : "btn-inactive"} href={props.link} target="_blank">Saiba mais</a>
+            <a className={props.link ? "btn-active" : "btn-inactive"} href={props.link} target="_blank">Saiba mais</a>
         </Fragment>
     )
 }
