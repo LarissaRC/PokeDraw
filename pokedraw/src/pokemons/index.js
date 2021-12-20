@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Pokemon from "./Pokemon";
 import "./style.css";
 
@@ -18,56 +18,41 @@ async function getPokemons() {
     return data;
 }
 
-class Pokemons extends React.Component {
+const Pokemons = () => {
+    const [pokemons, setPokemons] = useState([])
 
-    constructor(props){
-        super(props);
-        this.state = {
-            pokemons: [ ]
-        }
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         getPokemons().then(data => {
-            this.setState(state => ({
-                pokemons: data["pokemons"]
-            }));
-        });
-    }
+            setPokemons(data['pokemons']); /* Pegar do JSON */
+        })
+    }, []) /* Roda apenas na inicialização, e não em cada update */
 
-    removeLast = () => {
-        let new_pokemons = [...this.state.pokemons] /* Extraindo todos as propriedades de pokemons */
+    const removeLast = () => {
+        let new_pokemons = [...pokemons] /* Extraindo todos as propriedades de pokemons */
         new_pokemons.pop();
-        this.setState(state => ({
-            pokemons: new_pokemons
-        }))
+        setPokemons(new_pokemons);
     }
 
-    addNew = () => {
-        let new_pokemon = this.state.pokemons[this.state.pokemons.length -1];
-
-        this.setState(state => ({
-            pokemons: [...this.state.pokemons, new_pokemon]
-        }))
+    const addNew = () => {
+        let new_pokemon = pokemons[pokemons.length -1];
+        setPokemons([...pokemons, new_pokemon]);
     }
 
-    render() {
-        return(
-            <div>
-                <h3>Lista de Pokemons</h3>
-                <button className="add" onClick={this.addNew}>Adicionar um Pokemon</button>
-                <button className="remove" onClick={this.removeLast}>Remover o último da lista</button>
-                <hr/>
-                {this.state.pokemons.map((pokemon) =>
-                    <Pokemon name={pokemon.name}
-                    description={pokemon.description}
-                    link={pokemon.link}
-                    img_url={pokemon.img_url}
-                    types={pokemon.types}/>
-                )}
-            </div>
-        )
-    }
+    return(
+        <div>
+            <h3>Lista de Pokemons</h3>
+            <button className="add" onClick={addNew}>Adicionar um Pokemon</button>
+            <button className="remove" onClick={removeLast}>Remover o último da lista</button>
+            <hr/>
+            {pokemons.map((pokemon) =>
+                <Pokemon name={pokemon.name}
+                description={pokemon.description}
+                link={pokemon.link}
+                img_url={pokemon.img_url}
+                types={pokemon.types}/>
+            )}
+        </div>
+    )
 }
 
 export default Pokemons;
