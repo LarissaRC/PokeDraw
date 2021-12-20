@@ -25,7 +25,7 @@ const Pokemon = (props) => {
     }
 
     return(
-        <div class="pode-div">
+        <div class="poke-div">
             <h4>{props.name}</h4>
             <PokeDescLink link={props.link}
                           description={props.description} />
@@ -38,7 +38,6 @@ const Pokemon = (props) => {
                 )}
             </ul>
             <Form addType={addType}/>
-            <hr/>
         </div>
     )
 }

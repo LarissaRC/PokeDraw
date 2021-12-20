@@ -1,5 +1,12 @@
 .poke-div {
     width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+}
+
+p {
+    padding: 0px 10px 0px 10px;
 }
 
 h4 {
