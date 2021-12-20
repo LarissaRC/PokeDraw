@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Pokemon from "./Pokemon";
+import Form from "./form";
 import "./style.css";
 
 /*
@@ -38,18 +39,23 @@ const Pokemons = () => {
         setPokemons([...pokemons, new_pokemon]);
     }
 
+    const addPokemon = (new_pokemon) => {
+        setPokemons([...pokemons, new_pokemon]);
+    }
+
     return(
         <div>
             <h3>Lista de Pokemons</h3>
-            <button className="add" onClick={addNew}>Adicionar um Pokemon</button>
             <button className="remove" onClick={removeLast}>Remover o último da lista</button>
             <hr/>
+            <Form addPokemon={addPokemon} />
+            <hr/>
             {pokemons.map((pokemon) =>
-                <Pokemon name={pokemon.name}
+                <Pokemon id={pokemon.id}
+                name={pokemon.name}
                 description={pokemon.description}
                 link={pokemon.link}
-                img_url={pokemon.img_url}
-                types={pokemon.types}/>
+                img_url={pokemon.img_url}/>
             )}
         </div>
     )

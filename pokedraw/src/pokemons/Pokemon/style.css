@@ -2,6 +2,10 @@
     width: 50%;
 }
 
+h4 {
+    padding-left: 10px;
+}
+
 /* Cor de cada tipo de Pokemon */
 
 li {
@@ -19,7 +23,7 @@ li {
 }
 
 .Ground {
-    background-color: #ab9842;
+    background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
 }
 
 .Grass {
@@ -28,4 +32,60 @@ li {
 
 .Fighting {
     background-color: #d56723;
+}
+
+.Fire {
+    background-color: #fd7d24;
+}
+
+.Electric {
+    background-color: #eed535;
+}
+
+.Rock {
+    background-color: #a38c21;
+}
+
+.Bug {
+    background-color: #729f3f;
+}
+
+.Flying {
+    background: linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%);
+}
+
+.Poison {
+    background-color: #b97fc9;
+}
+
+.Psychic {
+    background-color: #f366b9;
+}
+
+.Ice {
+    background-color: #51c4e7;
+}
+
+.Normal {
+    background-color: #424242;
+}
+
+.Dragon {
+    background: linear-gradient(180deg, #53a4cf 50%, #f16e57 50%);
+}
+
+.Fairy {
+    background-color: #fdb9e9;
+}
+
+.Steel {
+    background-color: #424242;
+}
+
+.Dark {
+    background-color: #707070;
+}
+
+.Ghost {
+    background-color: #7b62a3;
 }
